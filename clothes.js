@@ -7,6 +7,7 @@ function colourTheory(colour, technique){
 
 //Class to create different clothes
 class Clothes{
+    colour = null;
 
     constructor(name, lightness, occasion){
         this.name = name;
@@ -14,6 +15,10 @@ class Clothes{
         this.lightness = lightness;
         //occasion literally refers to the occasion it is to be used in, i.e formal, fancy, casual etc
         this.occasion = occasion;
+    }
+
+    addClothing(Array, clothing, colour){
+        
     }
 
 } 
