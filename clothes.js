@@ -7,7 +7,8 @@ function colourTheory(colour, technique){
 
 //Class to create different clothes
 class Clothes{
-    colour = null;
+    Colour1 = null;
+    Colour2 = null;
 
     constructor(name, lightness, occasion){
         this.name = name;
@@ -17,12 +18,11 @@ class Clothes{
         this.occasion = occasion;
     }
 
-    addClothing(Array, clothing, colour){
-        
+    addClothing(Array, clothing, colour1, colour2){
+
     }
 
 } 
-
 
 //Inheritance to make different types of clothes
 class Jacket extends Clothes{
