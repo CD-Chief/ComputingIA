@@ -26,18 +26,17 @@ class Clothes{
     }
 
     //if clothing aligns with what is in the data then assign pre determined values for lightness and occasion
-    attributes(clothing){
-        let tempArr = findMatch(clothing);
-        let firstIterate = tempArr[0];
-        let secondIterate = tempArr[1];
-        currentName = clothing.name;
-        currentLightness = clothing.lightness;
-        currentOccasion = clothing.occasion;
-        currentLength = clothing.length;
+    attributes(){
+        let tempArr = findMatch(this);
+        if (tempArr != false){
+            //tempArr contains the clothing from the database that shares the name of the clothing being created
+            let firstIterate = tempArr[0];
+            let secondIterate = tempArr[1];
 
-        currentLightness = allCLothes[firstIterate][secondIterate][1];
-        currentOccasion = allCLothes[firstIterate][secondIterate][2];
-        currentLength = allCLothes[firstIterate][secondIterate][3];
+            clothing.lightness = allCLothes[firstIterate][secondIterate][1];
+            clothing.occasion = allCLothes[firstIterate][secondIterate][2];
+            clothing.length = allCLothes[firstIterate][secondIterate][3];
+        }
     }
 } 
 

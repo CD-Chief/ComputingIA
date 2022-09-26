@@ -39,8 +39,9 @@ function findMatch(clothing){
     for (let i = count ; i > -1 ; i--){
         for (let u = allCLothes[count].length ; u > -1 ; u--){
             if (clothing = allCLothes[i][u][0]){
-                return (temp = [u,i]);
+                return (temp = [i,u]);
             }
         }
     }
+    return false;
 }
