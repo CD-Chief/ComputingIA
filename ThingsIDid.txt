@@ -1,0 +1,2 @@
+- savedclothes countclothes
+had to repeat code beacause .lentgh does not work on arrays inside arrays.
