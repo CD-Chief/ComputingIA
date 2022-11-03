@@ -73,9 +73,9 @@ function countClothes(type){
 function findMatch(clothing, type){
     count = countAllClothes();
     console.log(count);
-    for (let i = 6 - 1 ; i > -1 ; i--){
-        for (let u = (countClothes(type) - 1) ; u >= 0 ; u--){
-            console.log(countClothes(type));
+    for (let i = 6 - 1 ; i >= 0 ; i--){
+        for (let u = (countClothes(allCLothes[i]) - 1) ; u >= 0 ; u--){
+            console.log(countClothes(allCLothes[i]));
             console.log(allCLothes[i][u][0]);
             if (clothing = allCLothes[i][u][0]){
                 console.log("found");

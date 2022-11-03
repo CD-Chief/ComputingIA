@@ -27,7 +27,7 @@ class Clothes{
 
     //if clothing aligns with what is in the data then assign pre determined values for lightness and occasion
     attributes(){
-        let tempArr = findMatch(this,this.type);
+        let tempArr = findMatch(this.name,this.type);
         if (tempArr != false){
             console.log("in")
             //tempArr contains the clothing from the database that shares the name of the clothing being created
