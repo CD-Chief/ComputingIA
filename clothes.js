@@ -34,9 +34,9 @@ class Clothes{
             let firstIterate = tempArr[0];
             let secondIterate = tempArr[1];
 
-            clothing.lightness = allCLothes[firstIterate][secondIterate][1];
-            clothing.occasion = allCLothes[firstIterate][secondIterate][2];
-            clothing.length = allCLothes[firstIterate][secondIterate][3];
+            this.lightness = allCLothes[firstIterate][secondIterate][1];
+            this.occasion = allCLothes[firstIterate][secondIterate][2];
+            this.length = allCLothes[firstIterate][secondIterate][3];
         }
         console.log("out")
     }

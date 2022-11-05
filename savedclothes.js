@@ -65,22 +65,49 @@ function countClothes(type){
             break;
         default:
             //Returns false if type is not found
-            false;
+            return false;
     }
 }
 
 //Function which finds the specified clothing's location in the array
+
+//Tried to make this function with two for loops where one would loop through all the different
+//Clothing type arrays and the other would be inside this one and loop through the different clothing inside these arrays
+// and check if the naem the user gave the clothing matches any of the ones in the ones in the arrays. For unknown reasons
+// this did not work
 function findMatch(clothing, type){
-    count = countAllClothes();
-    console.log(count);
-    for (let i = 6 - 1 ; i >= 0 ; i--){
-        for (let u = (countClothes(allCLothes[i]) - 1) ; u >= 0 ; u--){
-            console.log(countClothes(allCLothes[i]));
-            console.log(allCLothes[i][u][0]);
-            if (clothing = allCLothes[i][u][0]){
-                console.log("found");
-                return (temp = [i,u]);
-            }
+    var tempNum;
+    switch (type){
+        case "Jackets":
+            tempNum = 0;
+            break;
+        case "Shirts":
+            tempNum = 1;
+            break;
+        case "Pants":
+            tempNum = 2;
+            break;
+        case "Skirts":
+            tempNum = 3;
+            break;
+        case "Dresses":
+            tempNum = 4;
+            break;
+        case "Shoes":
+            tempNum = 5;
+            break;
+        default:
+            console.log("Error, Could not find type");
+            return false;
+            //Returns false and output error if type is not found (should not happen
+        }
+
+    // Checks if and of the clothing arrays contains the clothing and returns their location through an array
+    //if not found, returns false
+    for (let i = allCLothes[tempNum].length - 1 ; i >= 0 ; i-- ){
+        if (allCLothes[tempNum][i][0] == clothing){
+            console.log("found");
+            return (tempArr = [tempNum, i]);
         }
     }
     return false;
