@@ -76,7 +76,7 @@ function countClothes(type){
 // and check if the naem the user gave the clothing matches any of the ones in the ones in the arrays. For unknown reasons
 // this did not work
 function findMatch(clothing, type){
-    var tempNum;
+    let tempNum;
     switch (type){
         case "Jackets":
             tempNum = 0;
