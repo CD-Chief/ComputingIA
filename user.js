@@ -1,8 +1,10 @@
 class User{
     constructor(username, password, email){
-        var username = this.username;
-        var password = this.password;
-        var email = this.email
+        this.username = username;
+        this.password = password;
+        this.email = email;
+
+        let Closet = new Closet(this);
     }
 
     getUsername(){
@@ -23,6 +25,7 @@ class User{
 function newUser(username, password, email){
     return new User(username, password, email);
 }
+
 
 
 

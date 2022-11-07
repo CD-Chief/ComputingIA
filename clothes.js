@@ -6,7 +6,7 @@ function colourTheory(colour, technique){
 }
 
 //add clothes
-function addClothing(Array, clothing, type, colour1, colour2, lightness, occasion){
+function createClothing(Array, clothing, type, colour1, colour2, lightness, occasion){
     let newClothing = new Clothes(clothing, type, colour1, colour2, lightness, occasion)
     newClothing.attributes();
     Array.push(newClothing);
