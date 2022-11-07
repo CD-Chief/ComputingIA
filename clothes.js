@@ -1,17 +1,3 @@
-//Colour function
-function colourTheory(colour, technique){
-    //technique mening complimentary, analogous etc...
-    //would return 
-    return;
-}
-
-//add clothes
-function createClothing(Array, clothing, type, colour1, colour2, lightness, occasion){
-    let newClothing = new Clothes(clothing, type, colour1, colour2, lightness, occasion)
-    newClothing.attributes();
-    Array.push(newClothing);
-}
-
 //Class to create different clothes
 class Clothes{
 
@@ -29,7 +15,6 @@ class Clothes{
     attributes(){
         let tempArr = findMatch(this.name,this.type);
         if (tempArr != false){
-            console.log("in")
             //tempArr contains the clothing from the database that shares the name of the clothing being created
             let firstIterate = tempArr[0];
             let secondIterate = tempArr[1];
@@ -38,7 +23,6 @@ class Clothes{
             this.occasion = allCLothes[firstIterate][secondIterate][2];
             this.length = allCLothes[firstIterate][secondIterate][3];
         }
-        console.log("out")
     }
 } 
 

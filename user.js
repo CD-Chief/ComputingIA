@@ -25,7 +25,3 @@ class User{
 function newUser(username, password, email){
     return new User(username, password, email);
 }
-
-
-
-
