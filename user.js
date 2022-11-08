@@ -19,7 +19,7 @@ class User{
         return this.email;
     }
 
-    //change user,pass and email function
+    //change user,pass and email functions impending
 }
 
 function newUser(username, password, email){

@@ -1,4 +1,6 @@
-let idk = new Clothes("Cardigan", "Jackets", "Green", "Blue", null, null, null)
-idk.attributes()
+let Chief = newUser("wdhid", "isnwvww", "pinrv3r");
 
-console.log(idk.lightness);
+Chief.Closet.addNewClothing("Cardigan", "Jackets", "rgwr", "egrt4t", null, null);
+Chief.Closet.Storage[0].attributes;
+
+console.log(Chief.Closet.Storage[0].name);
