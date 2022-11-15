@@ -1,7 +1,7 @@
 class Closet{
     constructor(Owner){
         this.Owner = Owner;
-        let Storage = [];
+        this.Storage = [];
     }
 
     //Add clothing that already exists
@@ -12,6 +12,19 @@ class Closet{
     //Create new clothing and add it
     addNewClothing(clothing, type, colour1, colour2, lightness, occasion){
         this.Storage.push(new Clothes(clothing, type, colour1, colour2, lightness, occasion));
+    }
+
+    showAttributes(Index){
+        if (this.Storage[Index]){
+            let temp = this.Storage[Index];
+            console.log("Name: " + temp.name + " │type: " + temp.type + " │Colour: " + temp.colour1 + " + " + temp.colour2 + " │Lightness: " + temp.lightness + " │Occasion: " + temp.occasion);
+        }
+    }
+
+    showAll(){
+        for (let i = 0; i <= this.Storage.length - 1 ; i++){
+            this.showAttributes(i);
+        }
     }
 
     //Each of these functions have to include not creating older outfits

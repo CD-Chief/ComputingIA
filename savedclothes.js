@@ -106,7 +106,6 @@ function findMatch(clothing, type){
     //if not found, returns false
     for (let i = allCLothes[tempNum].length - 1 ; i >= 0 ; i-- ){
         if (allCLothes[tempNum][i][0] == clothing){
-            console.log("found");
             return (tempArr = [tempNum, i]);
         }
     }

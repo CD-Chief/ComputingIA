@@ -3,8 +3,11 @@ class User{
         this.username = username;
         this.password = password;
         this.email = email;
+        this.closet;
+    }
 
-        let Closet = new Closet(this);
+    addCloset(){
+        this.closet = new Closet(this);
     }
 
     getUsername(){
@@ -18,10 +21,5 @@ class User{
     getEmail(){
         return this.email;
     }
-
     //change user,pass and email functions impending
-}
-
-function newUser(username, password, email){
-    return new User(username, password, email);
 }
