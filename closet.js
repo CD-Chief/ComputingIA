@@ -10,14 +10,14 @@ class Closet{
     }
 
     //Create new clothing and add it
-    addNewClothing(clothing, type, colour1, colour2, lightness, occasion){
-        this.Storage.push(new Clothes(clothing, type, colour1, colour2, lightness, occasion));
+    addNewClothing(clothing, type, colour1, colour2, coverage, occasion){
+        this.Storage.push(new Clothes(clothing, type, colour1, colour2, coverage, occasion));
     }
 
     showAttributes(Index){
         if (this.Storage[Index]){
             let temp = this.Storage[Index];
-            console.log("Name: " + temp.name + " │type: " + temp.type + " │Colour: " + temp.colour1 + " + " + temp.colour2 + " │Lightness: " + temp.lightness + " │Occasion: " + temp.occasion);
+            console.log("Name: " + temp.name + " │type: " + temp.type + " │Colour: " + temp.colour1 + " + " + temp.colour2 + " │Coverage: " + temp.coverage + " │Occasion: " + temp.occasion);
         }
     }
 

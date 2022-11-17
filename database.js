@@ -8,4 +8,4 @@ const pool = createPool({
     connectionLimit: 10
 })
 
-pool.query(" ")
+pool.query(" ");

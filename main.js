@@ -7,7 +7,7 @@ Chief.closet.addClothing(whatever);
 Chief.closet.addNewClothing("Cardigan", "Jackets", "rgwr", "egrt4t", null, null);
 Chief.closet.Storage[0].attributes();
 
-console.log(Chief.closet.Storage[0].lightness);
-console.log(Chief.closet.Storage[1].lightness);
+console.log(Chief.closet.Storage[0].coverage);
+console.log(Chief.closet.Storage[1].coverage);
 
 Chief.closet.showAll();

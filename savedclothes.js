@@ -1,27 +1,27 @@
-//[name, lightness, occasion, length]
+//[name, coverage, occasion, thickness]
 const Jackets = [ 
-    ["Cardigan", 4,"Casual", true],
-    ["Winter Jacket", 0, "Casual", true]
+    ["Cardigan", 7,["Casual"], 6],
+    ["Winter Jacket", 10,["Casual"], 10]
 ];
 
 const Shirts = [
-    ["T-Shirt", 8,"Casual", false]
+    ["T-Shirt", 6,["Casual"], 5]
 ];
 
 const Pants = [
-    ["Dress Pants", 5,"Fancy", true]
+    ["Dress Pants", 9,["Fancy"], 3]
 ];
 
 const Skirts = [
-    ["Mini", 6,"Party", false]
+    ["Mini", 4,["Party"], 5]
 ];
 
 const Dresses = [
-    ["Apron", 7,"Casual", null]
+    ["Wrap Dress", 4,["Fancy", "Party"], 6]
 ];
 
 const Shoes = [
-    ["Boots", 4, "Casual", true]
+    ["Boots", 8, ["Casual"], 8]
 ];
 
 const allCLothes = [Jackets, Shirts, Pants, Skirts, Dresses, Shoes];
