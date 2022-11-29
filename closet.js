@@ -10,8 +10,8 @@ class Closet{
     }
 
     //Create new clothing and add it
-    addNewClothing(clothing, type, colour1, colour2, coverage, occasion){
-        this.Storage.push(new Clothes(clothing, type, colour1, colour2, coverage, occasion));
+    addNewClothing(clothing, type, colour, coverage, occasion){
+        this.Storage.push(new Clothes(clothing, type, colour, coverage, occasion));
     }
 
     showAttributes(Index){
@@ -29,12 +29,15 @@ class Closet{
 
     //Each of these functions have to include not creating older outfits
     //Create outfit with colour theory
-    colourTheory(colour, technique){
+    colourOutfit(colour, technique){
         //technique mening complimentary, analogous etc...
-        //would return 
+        //would return array of pices of clothing 
         return;
     }
 
     //Create outfit with Weather in consideration
+    weatherOutfit(tempCel){
+        //would return array of pices of clothing 
+    }
     
 }

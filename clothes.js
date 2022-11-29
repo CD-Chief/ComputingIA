@@ -1,11 +1,10 @@
 //Class to create different clothes
 class Clothes{
 
-    constructor(name, type, colour1, colour2, coverage, occasion, thickness){
+    constructor(name, type, colour, coverage, occasion, thickness){
         this.name = name;
         this.type = type;
-        this.colour1 = colour1;
-        this.colour2 = colour2;
+        this.colour = colour;
         this.coverage = coverage;
         this.occasion = occasion;
         this.thickness = thickness;
@@ -19,9 +18,15 @@ class Clothes{
             let firstIterate = tempArr[0];
             let secondIterate = tempArr[1];
 
-            this.coverage = allCLothes[firstIterate][secondIterate][1];
-            this.occasion = allCLothes[firstIterate][secondIterate][2];
-            this.thickness = allCLothes[firstIterate][secondIterate][3];
+            if (this.coverage == null){
+                this.coverage = allCLothes[firstIterate][secondIterate][1];
+            }
+            if (this.occasion == null){
+                this.occasion = allCLothes[firstIterate][secondIterate][2];
+            }
+            if (this.thickness == null){
+                this.thickness = allCLothes[firstIterate][secondIterate][3];
+            }
         }
     }
 } 

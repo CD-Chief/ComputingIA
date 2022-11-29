@@ -4,12 +4,14 @@ class User{
         this.password = password;
         this.email = email;
         this.closet;
+        this.outfits;
     }
 
     addCloset(){
         this.closet = new Closet(this);
     }
 
+    // In case I manage to make these variables private
     getUsername(){
         return this.username;
     }
