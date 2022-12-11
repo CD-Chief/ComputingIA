@@ -12,7 +12,6 @@ class Closet{
         this.Storage.push(new Clothes(clothing, type, colour, coverage, occasion));
     }
 
-    
     showAttributes(Index){
         if (this.Storage[Index]){
             let temp = this.Storage[Index];
