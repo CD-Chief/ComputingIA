@@ -1,5 +1,9 @@
 //CLass to create objects which store hexadecimal, name and brightness of colour
 
+//Dictionary ofr converting from colour name to hue in degree
+const ColHue = {
+    "R" : 0, "RO" : 30, "O" : 60, "YO" : 90, "Y" : 120, "YG" : 150, "G" : 180, "BG" : 210, "B" : 240, "BG" : 270, "P" : 300
+}
 
 class Colour{
     constructor(Hue1, colourName1, Hue2, colourName2, brightness){
@@ -16,57 +20,20 @@ class Colour{
     //If one of the parameters is null, it is filled by converting the other value into its type
     configure(){
         //First colour
-        if (this.Hue1 == null){
-            //Code to turn colour name in to hue
-            let temp = this.name1;
-            let temp2;
-            switch(temp){
-                case "R":
-                    temp2 = 0
-                    break;
-                case "RO":
-                    temp2 = 30
-                    break;
-                case "O":
-                    temp2 = 60
-                    break;
-                case "YO":
-                    temp2 = 90
-                    break;
-                case "Y":
-                    temp2 = 120
-                    break;
-                case "YG":
-                    temp2 = 150
-                    break;
-                case "G":
-                    temp2 = 180
-                    break;
-                case "BG":
-                    temp2 = 210
-                    break;
-                case "B":
-                    temp2 = 240
-                    break;
-                case "BP":
-                    temp2 = 270
-                    break;
-                case "P":
-                    temp2 = 300
-                    break;
-                case "RP":
-                    temp2 = 330
-                    break;
-            }
-        }else if(this.name1 = null){
+        if (this.Hue1 === null){
+            //Code to turn colour name in to hue using dictionary
+            this.Hue1 = ColHue[this.name1];
+        }else if(this.name1 == null){
             //Code to turn hue into colour name
+            Object.keys(ColHue).find(key => ColHue[key] === this.Hue1)
         }else{
             console.log("Failed Configuration of Colour 1")
         }
 
         //For Second colour
-        if (this.Hue2 == null){
-            //Code to turn colour name in to hue
+        if (this.Hue2 === null){
+            //Code to turn colour name in to hue using dictionary
+            this.Hue2 = ColHue[this.name2]
         }else if(this.name2 = null){
             //Code to turn hue into colour name
         }else{
