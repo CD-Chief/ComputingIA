@@ -1,9 +1,6 @@
-let thiscol = new Colour(60, null, null, null, 100);
+let thiscol = new Colour(60, null, null, null, 100, 100);
 
-thiscol.configure()
+thiscol.findName()
 
-console.log(thiscol.hue1)
-console.log(thiscol.hue2)
-
-console.log(ColHue["R"])
-console.log(ColHue["RO"])
+console.log(thiscol.name1)
+console.log(thiscol.name2)

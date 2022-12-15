@@ -46,6 +46,5 @@ class Closet{
     //Create outfit with Weather in consideration
     weatherOutfit(tempCel){
         //would return array of pices of clothing 
-    }
-    
+    } 
 }
