@@ -36,47 +36,56 @@ class Colour{
     }
 
     //convert hue into name or name into hue
-
-    /* 
-    findNameTemp(hue, name, sat, val){
+    //In order to prevent repeating of code and increase maintainability
+    findNameFunc(hue, name, sat, val){
         if( (hue != null) && (0 <= hue <= 360) ){
+            //traces hue back to their keys/names in dictionary
             return Object.keys(ColHue).find(colName => ColHue[colName] == hue);
-        }else if ( !(colourWheel1.includes(name)) ){
+        //Checks whether name is even valid, does not tell me it has failed if so
+        }else if ( (name == null) || !(colourWheel1.includes(name)) ){
             return false;
         }  
     }
-    */
-   
+
+    findHueFunc(hue, name, sat, val){
+        if ( (name != null ) && (colourWheel1.includes(name)) ){
+            //Code to turn colour name in to hue using dictionary
+            return ColHue[name];
+        //Checks whether hue is even valid, does not tell me it has failed if so
+        }else if( (hue == null) || !(0 <= hue <= 360)){
+            return false;
+        }
+    }
+
     findName(){
-        //traces hue back to their keys/names in dictionary
-        if( (this.hue1 != null) && (0 <= this.hue1 <= 360) ){
-            this.name1 = Object.keys(ColHue).find(colName => ColHue[colName] == this.hue1)
-        }else if ( !(colourWheel1.includes(this.name1)) ){
-            console.log("Failed name Configuration of Colour 1")
+        //first colour
+        if ((this.findNameFunc(this.hue1,this.name1,this.sat1,this.val1)) != false){
+            this.name1 = this.findNameFunc(this.hue1,this.name1,this.sat1,this.val1)
+        }else{
+            console.log("Failed config of name1")
         }
         
-        if ( (this.hue2 != null) && (0 <= this.hue2 <= 360) ){
-            this.name2 = Object.keys(ColHue).find(colName => ColHue[colName] == this.hue2)
-        }else if ( !(colourWheel1.includes(this.name1)) ){
-            console.log("Failed name Configuration of Colour 2")
+        //second colour
+        if ((this.findNameFunc(this.hue2,this.name2,this.sat2,this.val2)) != false){
+            this.name2 = this.findNameFunc(this.hue2,this.name2,this.sat2,this.val2)
+        }else{
+            console.log("Failed config of name2")
         }
     }
     
     findHue(){
         //First colour
-        if ( (this.name1 != null ) && (colourWheel1.includes(this.name1)) ){
-            //Code to turn colour name in to hue using dictionary
-            this.hue1 = ColHue[this.name1];
+        if ((this.findHueFunc(this.hue1,this.name1,this.sat1,this.val1)) != false){
+            this.hue1 = this.findHueFunc(this.hue1,this.name1,this.sat1,this.val1)
         }else{
-            console.log("Failed hue Configuration of Colour 1")
+            console.log("Failed config of hue1")
         }
 
         //For Second colour
-        if ( (this.name2 != null ) && (colourWheel1.includes(this.name2)) ){
-            //Code to turn colour name in to hue using dictionary
-            this.hue2 = ColHue[this.name2]
+        if ((this.findHueFunc(this.hue2,this.name2,this.sat2,this.val2)) != false){
+            this.hue2 = this.findHueFunc(this.hue2,this.name2,this.sat2,this.val2)
         }else{
-            console.log("Failed hue Configuration of Colour 2")
+            console.log("Failed config of hue2")
         }
     }
 
