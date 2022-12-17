@@ -28,13 +28,6 @@ class Closet{
 
     // CREATING OUTFITS SECTION
 
-    //Two rows so that the second row shows which colour is directly opposite of that of the first
-    colourWheel = [
-        ["YG","Y","YO","O","RO","R","RP","P","BP","B","BG","G"],
-        ["RP","P","BP","B","BG","G","YG","Y","YO","O","RO","R"]
-    ]
-
-
     //Each of these functions have to include not creating older outfits
     //Create outfit with colour theory
     colourOutfit(colour, technique){
@@ -48,3 +41,11 @@ class Closet{
         //would return array of pices of clothing 
     } 
 }
+
+//Two rows so that the second row shows which colour is directly opposite of that of the first
+colourWheel1 = ["YG","Y","YO","O","RO","R","RP","P","BP","B","BG","G"]
+
+colourWheel2 = [
+    ["YG","Y","YO","O","RO","R","RP","P","BP","B","BG","G"],
+    ["RP","P","BP","B","BG","G","YG","Y","YO","O","RO","R"]
+]

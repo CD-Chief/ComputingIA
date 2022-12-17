@@ -1,6 +1,6 @@
-let thiscol = new Colour(60, null, null, null, 100, 100);
+let thiscol = new Colour(null, "R", 300, null, 100, 100);
 
-thiscol.findName()
+thiscol.findAll()
 
 console.log(thiscol.name1)
-console.log(thiscol.name2)
+console.log(thiscol.hue2)
