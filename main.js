@@ -1,7 +1,11 @@
-let thiscol = new Colour(0, null, 0, 0, null, "R", 0, 0);
+let thiscol = new Colour(330, null, 0, 0, null, "Y", 0, 0);
 
-thiscol.findName()
+
+
+thiscol.findAll()
+
 console.log(thiscol.name1)
+console.log(thiscol.hue1)
 
-thiscol.findHue()
 console.log(thiscol.hue2)
+console.log(thiscol.name2)

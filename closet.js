@@ -42,9 +42,12 @@ class Closet{
     } 
 }
 
-//Two rows so that the second row shows which colour is directly opposite of that of the first
+//for black grey and white
+BGW = ["BL", "GR", "WH"];
+
 colourWheel1 = ["YG","Y","YO","O","RO","R","RP","P","BP","B","BG","G"]
 
+//Two rows so that the second row shows which colour is directly opposite of that of the first
 colourWheel2 = [
     ["YG","Y","YO","O","RO","R","RP","P","BP","B","BG","G"],
     ["RP","P","BP","B","BG","G","YG","Y","YO","O","RO","R"]

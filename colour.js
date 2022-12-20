@@ -35,56 +35,92 @@ class Colour{
         this.val1 = val2;
     }
 
+    //determine whether a colour is black grey or white based on saturation and value/brightness
+    //BGW stands for Black grey white
+    isBGW(sat,val){
+        let satline = (sat <= 40);
+        if(val >= 60){
+            if(satline){
+                return "WH";
+            }else{
+                return false;
+            }
+        }else if(val >= 30 ){
+            if(sat <= 40){
+                return "GR";
+            }else{
+                return false;
+            }
+        }else{
+            return "BL";
+        }
+    }
+
     //convert hue into name or name into hue
     //In order to prevent repeating of code and increase maintainability
+    //Still have to incporporate Black, Grey and white
     findNameFunc(hue, name, sat, val){
+        //checks if hue is valid
         if( (hue != null) && (0 <= hue <= 360) ){
             //traces hue back to their keys/names in dictionary
             return Object.keys(ColHue).find(colName => ColHue[colName] == hue);
-        //Checks whether name is even valid, does not tell me it has failed if so
+        //Checks whether name is not valid, if so it has failed
         }else if ( (name == null) || !(colourWheel1.includes(name)) ){
             return false;
-        }  
+        //in this case, hue is not valid but there already is a valid name
+        }else{
+            return true;
+        }
     }
 
     findHueFunc(hue, name, sat, val){
+        //if name is valid
         if ( (name != null ) && (colourWheel1.includes(name)) ){
             //Code to turn colour name in to hue using dictionary
             return ColHue[name];
-        //Checks whether hue is even valid, does not tell me it has failed if so
+        //Checks whether hue is not valid, if so it has failed
         }else if( (hue == null) || !(0 <= hue <= 360)){
             return false;
+        //in this case, name is not valid but there already is valid a hue
+        }else{
+            return true;
         }
     }
 
     findName(){
         //first colour
-        if ((this.findNameFunc(this.hue1,this.name1,this.sat1,this.val1)) != false){
-            this.name1 = this.findNameFunc(this.hue1,this.name1,this.sat1,this.val1)
-        }else{
+        let temp = this.findNameFunc(this.hue1,this.name1,this.sat1,this.val1);
+        if (temp != false && colourWheel1.includes(temp)){
+            this.name1 = temp;
+        }else if (temp == false){
             console.log("Failed config of name1")
         }
         
         //second colour
-        if ((this.findNameFunc(this.hue2,this.name2,this.sat2,this.val2)) != false){
-            this.name2 = this.findNameFunc(this.hue2,this.name2,this.sat2,this.val2)
-        }else{
+        temp = this.findNameFunc(this.hue2,this.name2,this.sat2,this.val2);
+        if (temp != false && colourWheel1.includes(temp)){
+            this.name2 = temp
+        }else if (temp == false){
             console.log("Failed config of name2")
         }
     }
     
     findHue(){
         //First colour
-        if ((this.findHueFunc(this.hue1,this.name1,this.sat1,this.val1)) != false){
-            this.hue1 = this.findHueFunc(this.hue1,this.name1,this.sat1,this.val1)
-        }else{
+        let temp = this.findHueFunc(this.hue1,this.name1,this.sat1,this.val1);
+        //find out whether temp is neither true or false, javascript automatically converts 0 to false so further measures are taken
+        if ((temp != false && temp != true) || temp == 0){
+            this.hue1 = temp;
+        }else if (temp == false){
             console.log("Failed config of hue1")
         }
 
         //For Second colour
-        if ((this.findHueFunc(this.hue2,this.name2,this.sat2,this.val2)) != false){
-            this.hue2 = this.findHueFunc(this.hue2,this.name2,this.sat2,this.val2)
-        }else{
+        temp = this.findHueFunc(this.hue2,this.name2,this.sat2,this.val2);
+        //find out whether temp is neither true or false, javascript automatically converts 0 to false so further measures are taken
+        if ((temp != false && temp != true) || temp == 0 ){
+            this.hue2 = temp;
+        }else if (temp == false){
             console.log("Failed config of hue2")
         }
     }
