@@ -12,8 +12,8 @@ const ColHue = {
     BG : 210, 
     B : 240, 
     BG : 270, 
-    P : 300
-    //
+    P : 300,
+    RP : 330
 }
 
 // HSV System
