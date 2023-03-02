@@ -22,6 +22,7 @@ const ColHue = {
  * ---
  */
 class Colour{
+<<<<<<< Updated upstream
     constructor(hue1, name1, sat1, val1,   hue2, name2, sat2, val2){
         //For the two dominant colours in each piece of clothing
         this.hue1 = hue1;
@@ -68,6 +69,33 @@ class Colour{
         }else if ( (name == null) || !(colourWheel1.includes(name)) ){
             return false;
         //in this case, hue is not valid but there already is a valid name
+=======
+    constructor(hue, colourName, saturation, value){
+        //For the dominant colour in each piece of clothing
+        this.hue = hue;
+        this.name = colourName;
+        this.saturation = saturation;
+        this.value = value;
+    }
+
+    fixHue(){
+        if(this.hue < 0){
+            hue += 360;
+        }else if (this.hue > 360){
+            hue -= 360;
+        }
+    }
+
+    //If one of the parameters is null, it is filled by converting the other value into its type
+    configure(){
+        //First colour
+        if (this.hue1 === null){
+            //Code to turn colour name in to hue using dictionary
+            this.hue1 = ColHue[this.name1];
+        }else if(this.name1 == null){
+            //Code to turn hue into colour name
+            Object.keys(ColHue).find(key => ColHue[key] === this.hue1)
+>>>>>>> Stashed changes
         }else{
             return true;
         }

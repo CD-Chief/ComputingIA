@@ -141,3 +141,7 @@ function findMatch(clothing, type){
     }
     return false;
 }
+
+function randInt(max) {
+    return Math.floor(Math.random() * max);
+  }
