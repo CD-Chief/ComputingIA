@@ -22,54 +22,6 @@ const ColHue = {
  * ---
  */
 class Colour{
-<<<<<<< Updated upstream
-    constructor(hue1, name1, sat1, val1,   hue2, name2, sat2, val2){
-        //For the two dominant colours in each piece of clothing
-        this.hue1 = hue1;
-        this.name1 = name1;
-        this.sat1 = sat1;
-        this.val1 = val1;
-
-        this.hue2 = hue2;
-        this.name2 = name2;
-        this.sat1 = sat2;
-        this.val1 = val2;
-    }
-
-    //determine whether a colour is black grey or white based on saturation and value/brightness
-    //BGW stands for Black grey white
-    isBGW(sat,val){
-        let satline = (sat <= 40);
-        if(val >= 60){
-            if(satline){
-                return "WH";
-            }else{
-                return false;
-            }
-        }else if(val >= 30 ){
-            if(sat <= 40){
-                return "GR";
-            }else{
-                return false;
-            }
-        }else{
-            return "BL";
-        }
-    }
-
-    //convert hue into name or name into hue
-    //In order to prevent repeating of code and increase maintainability
-    //Still have to incporporate Black, Grey and white
-    findNameFunc(hue, name, sat, val){
-        //checks if hue is valid
-        if( (hue != null) && (0 <= hue <= 360) ){
-            //traces hue back to their keys/names in dictionary
-            return Object.keys(ColHue).find(colName => ColHue[colName] == hue);
-        //Checks whether name is not valid, if so it has failed
-        }else if ( (name == null) || !(colourWheel1.includes(name)) ){
-            return false;
-        //in this case, hue is not valid but there already is a valid name
-=======
     constructor(hue, colourName, saturation, value){
         //For the dominant colour in each piece of clothing
         this.hue = hue;
@@ -95,7 +47,6 @@ class Colour{
         }else if(this.name1 == null){
             //Code to turn hue into colour name
             Object.keys(ColHue).find(key => ColHue[key] === this.hue1)
->>>>>>> Stashed changes
         }else{
             return true;
         }

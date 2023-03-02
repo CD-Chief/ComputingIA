@@ -56,9 +56,6 @@ class Closet{
 
     // CREATING OUTFITS SECTION
 
-<<<<<<< Updated upstream
-    //Each of these functions have to include not creating older outfits
-=======
     //Two rows so that the second row shows which colour is directly opposite of that of the first
     //may not need this
     colourWheel = [
@@ -69,7 +66,6 @@ class Closet{
 
     //Filters filter out thr peices of clothing that would not fit,
     //And return the correct pieces of clothing in an array that can be passed into another filter or into constructOUtfit
->>>>>>> Stashed changes
     //Create outfit with colour theory
     colourFilterComplimentary(clothingArr){
         let tempArr = [
@@ -100,9 +96,9 @@ class Closet{
         mainPiece.colour.fixHue();
 
         for(let i = 0; i <= 6; i++){
-            if (this.Storage[i][0].length == 0){
+            if (this.Storage[i][0].length != 0){
                 for(let i = 0; i <= 6 ; i++ ){
-
+                    
                 }
             }//complete loop to loop around storage and check if empty or not 
         }
@@ -120,24 +116,6 @@ class Closet{
         return;
     }
 
-<<<<<<< Updated upstream
-    //Create outfit with Weather in consideration
-    weatherOutfit(tempCel){
-        //would return array of pices of clothing 
-    } 
-}
-
-//for black grey and white
-BGW = ["BL", "GR", "WH"];
-
-colourWheel1 = ["YG","Y","YO","O","RO","R","RP","P","BP","B","BG","G"]
-
-//Two rows so that the second row shows which colour is directly opposite of that of the first
-colourWheel2 = [
-    ["YG","Y","YO","O","RO","R","RP","P","BP","B","BG","G"],
-    ["RP","P","BP","B","BG","G","YG","Y","YO","O","RO","R"]
-]
-=======
     weatherFilter(clothingArr, tempCel){
     }
 
@@ -150,4 +128,3 @@ colourWheel2 = [
     }
     
 }
->>>>>>> Stashed changes
