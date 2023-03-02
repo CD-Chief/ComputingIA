@@ -1,50 +1,41 @@
-
-const typeNum = {
-    "jacket" : 0, "shirt" : 1, "pants" : 2, "skirt" : 3, "shoe" : 4, "dress" : 5
+function randInt(max) {
+    return Math.floor(Math.random() * max);
 }
 
 class Closet{
     constructor(Owner){
         this.Owner = Owner;
-        this.Storage = [
-            [], //Jackets
-            [], //Shirts
-            [], // Pants
-            [], // Skirts
-            [], //Shoes
-            [] //Dresses
-        ];
+        this.tops = []
+        this.bottoms = []
+        this.shoes = []
+        this.Storage = [tops,bottoms,shoes];
 
     }
     //Add clothing that already exists
     addClothing(Clothing){
-        if (Clothing.type == "jacket"){
-            this.Storage[0].push(Clothing);   
-        }else if (Clothing.type == "shirt"){
-            this.Storage[1].push(Clothing);
-        }else if (Clothing.type == "pants"){
-            this.Storage[2].push(Clothing);
-        }else if (Clothing.type == "skirt"){
-            this.Storage[3].push(Clothing);
-        }else if (Clothing.type == "shoe"){
-            this.Storage[4].push(Clothing);
-        }else if (Clothing.type == "dress"){
-            this.Storage[5].push(Clothing);
+        if (Clothing.type == "top"){
+            this.tops.push(Clothing);   
+        }else if (Clothing.type == "bottom"){
+            this.bottoms.push(Clothing);
+        }else if (Clothing.type == "shoes"){
+            this.shoes.push(Clothing);
+        }else{
+            console.log("Invalid Type, Could not add clothing")
         }
     }
 
     //Create new clothing and add it
-    addNewClothing(clothing, type, colour, coverage, occasion){
-        addClothing(this.Storage.push(new Clothes(clothing, type, colour, coverage, occasion)))
+    addNewClothing(name, type, colour, occasion, warmth){
+        addClothing(this.Storage.push(new Clothes(name, type, colour, occasion, warmth)))
     }
 
-    showAttributes( type,Index){
+    //with index or actual object??
+    showAttributes(type,Index){
         if (this.Storage[Index]){
             let temp = this.Storage[Index];
             console.log("Name: " + temp.name + " │type: " + temp.type + " │Colour: " + temp.colour.name1 + " + " + temp.colour.name2 + " │Coverage: " + temp.coverage + " │Occasion: " + temp.occasion);
         }
     }
-
     showAll(){
         for (let i = 0; i <= this.Storage.length - 1 ; i++){
             this.showAttributes(i);
@@ -64,17 +55,39 @@ class Closet{
     ]
 
 
-    //Filters filter out thr peices of clothing that would not fit,
-    //And return the correct pieces of clothing in an array that can be passed into another filter or into constructOUtfit
-    //Create outfit with colour theory
+    //Filters filter out the peices of clothing that would not fit,
+    //And return the correct pieces of clothing in an array that can be passed into another filter or into constructOutfit
+
+    //function that checks whther you have at least 1 piece of clothing for each type
+    enoughClothes(){
+        for (i = 0; i <= 2; i++){
+            if (this.Storage[i].length == 0){
+                if(i == 0){
+                    console.log("Not enough tops")
+                }else if(i == 1){
+                    console.log("Not enough bottoms")
+                }else if(i == 2){
+                    console.log("Not enough Shoes")
+                }else{
+                    console.log("Error with enough clothes func")
+                }
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //Complimentary filter (fix)
     colourFilterComplimentary(clothingArr){
+        if (!this.enoughClothes){
+    
+            retur
+        }
+
         let tempArr = [
-            [], //Jackets
-            [], //Shirts
-            [], // Pants
-            [], // Skirts
-            [], //Shoes
-            [] //Dresses
+            [], //Tops
+            [], //Bottoms
+            [], // Shoes
         ];
         let verifies = 0;
         for (let i = 0; i <= 6 ; i++ ){
