@@ -38,4 +38,9 @@ class Colour{
     findHue(){
 
     }
+
+    isBlackWhite(){
+
+    }
+    
 }
