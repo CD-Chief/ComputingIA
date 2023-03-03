@@ -2,11 +2,15 @@
 class Clothes{
 
     constructor(name, type, colour, occasion, warmth){
-        this.name = name;
-        this.type = type;
-        this.colour = colour;
-        this.occasion = occasion;
-        this.warmth = warmth;
+        this.name = name; //string
+        this.type = type; //string 
+        this.colour = colour; //object
+        this.occasion = occasion; //array with occasions the clothing can be used in
+        this.warmth = warmth; //Value out of 10
     }
-        
+
+    showAttributes(){
+        console.log("Name: " + this.name + " │type: " + this.type + " │Colour: " + this.colour.hue + " │Coverage: " + this.coverage + " │Occasion: " + this.occasion);
+    }
+
 } 

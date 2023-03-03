@@ -34,6 +34,20 @@ class Colour{
         }
     }
 
+    //Cheks whether the hue is in range of inpHue, the range being +- 15
+    hueInRange(inpHue){
+        this.fixHue()
+        if ((this.hue >= inpHue - 15) && (this.hue <= inpHue + 15)){
+            console.log(this.hue)
+            console.log(inpHue)
+            return true;
+        }else{
+            console.log(this.hue)
+            console.log(inpHue)
+            return false;
+        }
+    }
+
     //be able to convert an RGB value into hue
     findHue(){
 
@@ -42,5 +56,5 @@ class Colour{
     isBlackWhite(){
 
     }
-    
+
 }
