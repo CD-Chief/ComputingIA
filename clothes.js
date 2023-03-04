@@ -5,7 +5,7 @@ class Clothes{
         this.name = name; //string
         this.type = type; //string 
         this.colour = colour; //object
-        this.occasion = occasion; //array with occasions the clothing can be used in
+        this.occasion = occasion; // occasion the clothing can be used in
         this.warmth = warmth; //Value out of 10
     }
 

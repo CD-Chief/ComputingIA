@@ -1,4 +1,14 @@
-//CLass to create objects which store hexadecimal, name and brightness of colour
+
+function fixHue(hue){
+    if(hue < 0){
+        return hue += 360;
+    }else if (this.hue > 360){
+        return hue -= 360;
+    }else{
+        return hue;
+    }
+}
+
 
 //Dictionary for converting from colour name to hue in degree
 const ColHue = {
@@ -16,6 +26,7 @@ const ColHue = {
     RP : 330
 }
 
+//Class to create objects which store hexadecimal, name and brightness of colour
 // HSV System
 class Colour{
     constructor(hue, rgb, saturation, value){
@@ -26,24 +37,13 @@ class Colour{
         this.value = value;
     }
 
-    fixHue(){
-        if(this.hue < 0){
-            hue += 360;
-        }else if (this.hue > 360){
-            hue -= 360;
-        }
-    }
-
     //Cheks whether the hue is in range of inpHue, the range being +- 15
     hueInRange(inpHue){
-        this.fixHue()
+        inpHue = fixHue(inpHue);
         if ((this.hue >= inpHue - 15) && (this.hue <= inpHue + 15)){
-            console.log(this.hue)
-            console.log(inpHue)
+
             return true;
         }else{
-            console.log(this.hue)
-            console.log(inpHue)
             return false;
         }
     }
