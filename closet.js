@@ -76,7 +76,7 @@ class Closet{
     //function that checks whther you have at least 1 piece of clothing for each type
 
 
-    //Complimentary filter
+    
     colourFilterComplimentary(clothingArr){
         if (enoughClothes(clothingArr) != true){
             console.log("cannot perform filter");
@@ -115,12 +115,13 @@ class Closet{
         //check if clothes left over are enough, if not recommend a piece of clothing
         if (enoughClothes(tempArr) != true){
             recommend("colour", secondColour, tempArr);
+            return tempArr;
         }else{
             return tempArr;
         }
     }
 
-    //check if user has enough clothes
+
     colourFilterAnalogous(clothingArr){
         if (enoughClothes(clothingArr) != true){
             console.log("cannot perform filter");
@@ -161,6 +162,7 @@ class Closet{
         //check if clothes left over are enough, if not recommend a piece of clothing
         if (enoughClothes(tempArr) != true){
             recommend("colour", secondColour, tempArr);
+            return tempArr;
         }else{
             return tempArr;
         }
@@ -207,6 +209,7 @@ class Closet{
         //check if clothes left over are enough, if not recommend a piece of clothing
         if (enoughClothes(tempArr) != true){
             recommend("colour", secondColour, tempArr);
+            return tempArr;
         }else{
             return tempArr;
         }
@@ -252,10 +255,12 @@ class Closet{
         //check if clothes left over are enough, if not recommend a piece of clothing
         if (enoughClothes(tempArr) != true){
             recommend("colour", secondColour, tempArr);
+            return tempArr;
         }else{
             return tempArr;
         }
     }
+
 
     weatherFilter(clothingArr, tempCel){
 
@@ -263,6 +268,13 @@ class Closet{
             console.log("cannot perform filter");
             return false;
         }
+
+        //array to store clothes after
+        let tempArr = [
+            [], //Tops
+            [], //Bottoms
+            [], // Shoes
+        ];
 
         let requiredWarmth = (10 -(tempCel/4))
 
@@ -279,6 +291,7 @@ class Closet{
         //check if clothes left over are enough, if not recommend a piece of clothing
         if (enoughClothes(tempArr) != true){
             recommend("warmth",requiredWarmth, tempArr);
+            return tempArr;
         }else{
             return tempArr;
         }
@@ -286,10 +299,19 @@ class Closet{
     }
 
     occasionFilter(clothingArr, Occasions){
+        
         if (enoughClothes(clothingArr) != true){
             console.log("cannot perform filter");
             return false;
         }
+
+        //array to store clothes after
+        let tempArr = [
+            [], //Tops
+            [], //Bottoms
+            [], // Shoes
+        ];
+
 
         for(let i = 0; i <= 2; i++){
             for (let t = 0; t <= clothingArr[i].length - 1; t++){
@@ -303,6 +325,7 @@ class Closet{
 
         if (enoughClothes(tempArr) != true){
             recommend("",Occasions[0], tempArr);
+            return tempArr;
         }else{
             return tempArr;
         }
