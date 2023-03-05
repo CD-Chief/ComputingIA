@@ -153,7 +153,6 @@ class Closet{
             for (let t = 0; t <= clothingArr[i].length - 1; t++){
                 //uses function to check whether the current clothing colour is imilar to any of the required colours
                 if (clothingArr[i][t].colour.hueInRange(firstColour) || clothingArr[i][t].colour.hueInRange(secondColour) || clothingArr[i][t].colour.hueInRange(thirdColour)){ //need way to express black and white
-                    console.log(clothingArr[i][t].name);
                     tempArr[i].push(clothingArr[i][t]);
                 }
             }
@@ -162,8 +161,10 @@ class Closet{
         //check if clothes left over are enough, if not recommend a piece of clothing
         if (enoughClothes(tempArr) != true){
             recommend("colour", secondColour, tempArr);
+            console.log("fail")
             return tempArr;
         }else{
+            console.log("pass")
             return tempArr;
         }
 
@@ -282,7 +283,6 @@ class Closet{
         for(let i = 0; i <= 2; i++){
             for (let t = 0; t <= clothingArr[i].length - 1; t++){
                 if (clothingArr[i][t].warmth <= requiredWarmth + 1 && clothingArr[i][t].warmth >= requiredWarmth - 1){
-                    console.log(clothingArr[i][t].name);
                     tempArr[i].push(clothingArr[i][t]);
                 }
             }
@@ -316,7 +316,6 @@ class Closet{
         for(let i = 0; i <= 2; i++){
             for (let t = 0; t <= clothingArr[i].length - 1; t++){
                 if (Occasions.includes(clothingArr[i][t].occasion)){
-                    console.log(clothingArr[i][t].name);
                      tempArr[i].push(clothingArr[i][t]);
                     break;
                  }
@@ -325,8 +324,10 @@ class Closet{
 
         if (enoughClothes(tempArr) != true){
             recommend("",Occasions[0], tempArr);
+            console.log("fail")
             return tempArr;
         }else{
+            console.log("pass")
             return tempArr;
         }
     }
@@ -339,6 +340,7 @@ class Closet{
             temp = randInt(this.Storage[i].length)
             for (let t = 0; t <= clothingArr[i].length - 1; t++){
                 if(t == temp){
+                    console.log("assigned")
                     tempOutfit.fullOutfit[i] = clothingArr[i][t];
                 }
             }

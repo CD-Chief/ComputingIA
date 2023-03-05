@@ -5,4 +5,10 @@ class Outfit{
         this.shoe = shoe;
         this.fullOutfit = [top,bottom,shoe];
     }
+
+    showOutfit(){
+        console.log(top.name)
+        console.log(bottom.name)
+        console.log(shoe.name)
+    }
 }

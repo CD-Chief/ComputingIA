@@ -25,9 +25,4 @@ chief.addNewClothing("shoes4", "shoe", new Colour(100), "party", 0)
 chief.addNewClothing("shoes5", "shoe", new Colour(316), "casual", 1)
 chief.addNewClothing("shoes6", "shoe", new Colour(275), "fancy", 7)
 
-
-let compArr = chief.colourFilterAnalogous(chief.Storage);
-compArr = chief.occasionFilter(["fancy", "party"],)
-compArr = chief.constructOutfit(compArr)
-
-console.log(compArr)
+temp = chief.Storage
