@@ -3,12 +3,19 @@ class Outfit{
         this.top = top;
         this.bottom = bottom;
         this.shoe = shoe;
-        this.fullOutfit = [top,bottom,shoe];
+        this.fullOutfit = [this.top,this.bottom,this.shoe];
+        this.dateWorn = false;
     }
 
     showOutfit(){
-        console.log(top.name)
-        console.log(bottom.name)
-        console.log(shoe.name)
+        for (let i = 0; i <= 2; i++){
+            console.log(this.fullOutfit[i].name)
+        }
     }
+
+    wear(){
+        this.dateWorn = new Date().now
+    }
+
+
 }

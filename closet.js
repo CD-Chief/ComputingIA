@@ -4,6 +4,9 @@ function randInt(max) {
 
 function enoughClothes(clothingArr){
     for (i = 0; i <= 2; i++){
+        if (clothingArr == false){
+            return false;
+        }
         if (clothingArr[i].length == 0){
             if(i == 0){
                 console.log("Not enough tops")
@@ -38,6 +41,7 @@ class Closet{
         this.bottoms = []
         this.shoes = []
         this.Storage = [this.tops,this.bottoms,this.shoes];
+        this.tempStorage = [[],[],[]];
     }
 
     //Add clothing that already exists
@@ -171,6 +175,7 @@ class Closet{
     }
 
     colourFilterTriadic(clothingArr){
+
         if (enoughClothes(clothingArr) != true){
             console.log("cannot perform filter");
             return false;
@@ -334,11 +339,19 @@ class Closet{
 
     //creates an outfit by randomly choosing clothing from given array
     constructOutfit(clothingArr){
+        if (enoughClothes(clothingArr) != true){
+            console.log("cannot construct");
+            return false;
+        }
+
         let tempOutfit = new Outfit();
         let temp;
         for(let i = 0; i <= 2; i++){
-            temp = randInt(this.Storage[i].length)
-            for (let t = 0; t <= clothingArr[i].length - 1; t++){
+            temp = randInt(clothingArr[i].length)
+            console.log(clothingArr[i].length)
+            console.log(temp)
+            for (let t = 0; t <= clothingArr[i].length ; t++){
+                console.log(t + " " + temp)
                 if(t == temp){
                     console.log("assigned")
                     tempOutfit.fullOutfit[i] = clothingArr[i][t];

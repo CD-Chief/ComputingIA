@@ -25,4 +25,17 @@ chief.addNewClothing("shoes4", "shoe", new Colour(100), "party", 0)
 chief.addNewClothing("shoes5", "shoe", new Colour(316), "casual", 1)
 chief.addNewClothing("shoes6", "shoe", new Colour(275), "fancy", 7)
 
-temp = chief.Storage
+
+
+
+let start  = new Date();
+let end = new Date();
+
+
+lstart = Date.now();
+
+end = Date.now();
+
+let elapsed = end - start;
+
+console.log(elapsed)
