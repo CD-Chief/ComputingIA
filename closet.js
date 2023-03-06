@@ -35,13 +35,12 @@ function recommend(type ,criteria, clothingArr){
 }
 
 class Closet{
-    constructor(Owner){
-        this.Owner = Owner;
+    constructor(){
         this.tops = []
         this.bottoms = []
         this.shoes = []
         this.Storage = [this.tops,this.bottoms,this.shoes];
-        this.tempStorage = [[],[],[]];
+        this.Outfits = []
     }
 
     //Add clothing that already exists
@@ -60,19 +59,20 @@ class Closet{
     //Create new clothing and add it
     addNewClothing(name, type, colour, occasion, warmth){
         this.addClothing(new Clothes(name, type, colour, occasion, warmth))
+        this.Storage = [this.tops,this.bottoms,this.shoes];
+    }
+
+    saveOutfit(index){
+        if (this.recentOutfits[index]){
+            this.savedOutfits.push(this.recentOutfits[index])
+        }else{
+            console.log("Invalid index")
+        }
+        
     }
 
 
     // CREATING OUTFITS SECTION
-
-
-    //Two rows so that the second row shows which colour is directly opposite of that of the first
-    //may not need this
-    colourWheel = [
-        ["YG","Y","YO","O","RO","R","RP","P","BP","B","BG","G"],
-        ["RP","P","BP","B","BG","G","YG","Y","YO","O","RO","R"]
-    ]
-
 
     //Filters filter out the peices of clothing that would not fit,
     //And return the correct pieces of clothing in an array that can be passed into another filter or into constructOutfit
@@ -82,6 +82,8 @@ class Closet{
 
     
     colourFilterComplimentary(clothingArr){
+
+        //check whether there are enough clothes
         if (enoughClothes(clothingArr) != true){
             console.log("cannot perform filter");
             return false;
@@ -100,9 +102,9 @@ class Closet{
         let mainClothing = clothingArr[index1][index2];
 
         //finding required colours
-        let firstColour = mainClothing.colour.hue;
+        let firstColour = mainClothing.hue;
         firstColour = fixHue(firstColour);
-        let secondColour = mainClothing.colour.hue + 180;
+        let secondColour = mainClothing.hue + 180;
         secondColour = fixHue(secondColour);
         
 
@@ -110,16 +112,16 @@ class Closet{
         for(let i = 0; i <= 2; i++){
             for (let t = 0; t <= clothingArr[i].length - 1; t++){
                 //uses function to check whether the current clothing colour is imilar to any of the required colours
-                if (clothingArr[i][t].colour.hueInRange(firstColour) || clothingArr[i][t].colour.hueInRange(secondColour) ){ //need way to express black and white
-                    console.log(clothingArr[i][t].name);
+                if (clothingArr[i][t].hueInRange(firstColour) || clothingArr[i][t].hueInRange(secondColour) ){ //need way to express black and white
                     tempArr[i].push(clothingArr[i][t]);
                 }
             }
         }
+
         //check if clothes left over are enough, if not recommend a piece of clothing
         if (enoughClothes(tempArr) != true){
             recommend("colour", secondColour, tempArr);
-            return tempArr;
+            return false;
         }else{
             return tempArr;
         }
@@ -127,6 +129,8 @@ class Closet{
 
 
     colourFilterAnalogous(clothingArr){
+
+        //check whether there are enough clothes
         if (enoughClothes(clothingArr) != true){
             console.log("cannot perform filter");
             return false;
@@ -145,7 +149,7 @@ class Closet{
         let mainClothing = clothingArr[index1][index2];
 
         //finding required colours
-        let firstColour = mainClothing.colour.hue;
+        let firstColour = mainClothing.hue;
         firstColour = fixHue(firstColour);
         let secondColour = firstColour - 30;
         secondColour = fixHue(secondColour);
@@ -156,7 +160,7 @@ class Closet{
         for(let i = 0; i <= 2; i++){
             for (let t = 0; t <= clothingArr[i].length - 1; t++){
                 //uses function to check whether the current clothing colour is imilar to any of the required colours
-                if (clothingArr[i][t].colour.hueInRange(firstColour) || clothingArr[i][t].colour.hueInRange(secondColour) || clothingArr[i][t].colour.hueInRange(thirdColour)){ //need way to express black and white
+                if (clothingArr[i][t].hueInRange(firstColour) || clothingArr[i][t].hueInRange(secondColour) || clothingArr[i][t].hueInRange(thirdColour)){ //need way to express black and white
                     tempArr[i].push(clothingArr[i][t]);
                 }
             }
@@ -165,10 +169,8 @@ class Closet{
         //check if clothes left over are enough, if not recommend a piece of clothing
         if (enoughClothes(tempArr) != true){
             recommend("colour", secondColour, tempArr);
-            console.log("fail")
-            return tempArr;
+            return false;
         }else{
-            console.log("pass")
             return tempArr;
         }
 
@@ -176,6 +178,7 @@ class Closet{
 
     colourFilterTriadic(clothingArr){
 
+        //check whether there are enough clothes
         if (enoughClothes(clothingArr) != true){
             console.log("cannot perform filter");
             return false;
@@ -194,7 +197,7 @@ class Closet{
         let mainClothing = clothingArr[index1][index2];
 
         //finding required colours
-        let firstColour = mainClothing.colour.hue;
+        let firstColour = mainClothing.hue;
         firstColour = fixHue(firstColour);
         let secondColour = firstColour - 120;
         secondColour = fixHue(secondColour);
@@ -205,8 +208,7 @@ class Closet{
         for(let i = 0; i <= 2; i++){
             for (let t = 0; t <= clothingArr[i].length - 1; t++){
                 //uses function to check whether the current clothing colour is imilar to any of the required colours
-                if (clothingArr[i][t].colour.hueInRange(firstColour) || clothingArr[i][t].colour.hueInRange(secondColour) || clothingArr[i][t].colour.hueInRange(thirdColour)){ //need way to express black and white
-                    console.log(clothingArr[i][t].name);
+                if (clothingArr[i][t].hueInRange(firstColour) || clothingArr[i][t].hueInRange(secondColour) || clothingArr[i][t].hueInRange(thirdColour)){ //need way to express black and white
                     tempArr[i].push(clothingArr[i][t]);
                 }
             }
@@ -215,13 +217,15 @@ class Closet{
         //check if clothes left over are enough, if not recommend a piece of clothing
         if (enoughClothes(tempArr) != true){
             recommend("colour", secondColour, tempArr);
-            return tempArr;
+            return false;
         }else{
             return tempArr;
         }
     }
 
     colourFilterSplitComplimentary(clothingArr){
+
+        //check whether there are enough clothes
         if (enoughClothes(clothingArr) != true){
             console.log("cannot perform filter");
             return false;
@@ -240,7 +244,7 @@ class Closet{
         let mainClothing = clothingArr[index1][index2];
 
         //finding required colours
-        let firstColour = mainClothing.colour.hue;
+        let firstColour = mainClothing.hue;
         firstColour = fixHue(firstColour);
         let secondColour = firstColour - 160;
         secondColour = fixHue(secondColour);
@@ -251,8 +255,7 @@ class Closet{
         for(let i = 0; i <= 2; i++){
             for (let t = 0; t <= clothingArr[i].length - 1; t++){
                 //uses function to check whether the current clothing colour is imilar to any of the required colours
-                if (clothingArr[i][t].colour.hueInRange(firstColour) || clothingArr[i][t].colour.hueInRange(secondColour) || clothingArr[i][t].colour.hueInRange(thirdColour)){ //need way to express black and white
-                    console.log(clothingArr[i][t].name);
+                if (clothingArr[i][t].hueInRange(firstColour) || clothingArr[i][t].hueInRange(secondColour) || clothingArr[i][t].hueInRange(thirdColour)){ //need way to express black and white
                     tempArr[i].push(clothingArr[i][t]);
                 }
             }
@@ -261,7 +264,7 @@ class Closet{
         //check if clothes left over are enough, if not recommend a piece of clothing
         if (enoughClothes(tempArr) != true){
             recommend("colour", secondColour, tempArr);
-            return tempArr;
+            return false;
         }else{
             return tempArr;
         }
@@ -270,6 +273,7 @@ class Closet{
 
     weatherFilter(clothingArr, tempCel){
 
+        //check whether there are enough clothes
         if (enoughClothes(clothingArr) != true){
             console.log("cannot perform filter");
             return false;
@@ -296,7 +300,7 @@ class Closet{
         //check if clothes left over are enough, if not recommend a piece of clothing
         if (enoughClothes(tempArr) != true){
             recommend("warmth",requiredWarmth, tempArr);
-            return tempArr;
+            return false;
         }else{
             return tempArr;
         }
@@ -305,6 +309,7 @@ class Closet{
 
     occasionFilter(clothingArr, Occasions){
         
+        //check whether there are enough clothes
         if (enoughClothes(clothingArr) != true){
             console.log("cannot perform filter");
             return false;
@@ -329,35 +334,37 @@ class Closet{
 
         if (enoughClothes(tempArr) != true){
             recommend("",Occasions[0], tempArr);
-            console.log("fail")
-            return tempArr;
+            return false;
         }else{
-            console.log("pass")
             return tempArr;
         }
     }
 
     //creates an outfit by randomly choosing clothing from given array
     constructOutfit(clothingArr){
+
+        //check whether there are enough clothes
         if (enoughClothes(clothingArr) != true){
             console.log("cannot construct");
             return false;
         }
 
+        //create outfit object to edit and return
         let tempOutfit = new Outfit();
         let temp;
+
+        //loop through clothing
         for(let i = 0; i <= 2; i++){
+
+            //used to compare to index and choose random piece of lcothing
             temp = randInt(clothingArr[i].length)
-            console.log(clothingArr[i].length)
-            console.log(temp)
             for (let t = 0; t <= clothingArr[i].length ; t++){
-                console.log(t + " " + temp)
                 if(t == temp){
-                    console.log("assigned")
                     tempOutfit.fullOutfit[i] = clothingArr[i][t];
                 }
             }
         }
+        this.Outfits.push(tempOutfit)
         return tempOutfit;
     }
 }

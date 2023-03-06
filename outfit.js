@@ -13,9 +13,13 @@ class Outfit{
         }
     }
 
-    wear(){
-        this.dateWorn = new Date().now
+    wearOutfit() {
+        const today = new Date().getTime();
+        if (!this.dateWorn || today - this.dateWorn < 604800000) { // 604800000 ms = 7 days
+          this.dateWorn = today;
+          console.log("Outfit worn");
+        } else {
+          console.log("This outfit was worn too recently");
+        }
     }
-
-
 }

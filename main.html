@@ -1,16 +1,143 @@
 <!DOCTYPE html lang=en>
-<htmml>
-    <head>
-        <link rel="shortcut icon" href="#">
-        <script src="colour.js">
-        </script>
-        <script src="clothes.js">
-        </script>
-        <script src="outfit.js">
-        </script>
-        <script src="closet.js">
-        </script>
-        <script src="./main.js">
-        </script>
-    </head>
-</htmml>
+<html>
+  <head>
+    <script src="clothes.js">
+    </script>
+    <script src="outfit.js">
+    </script>
+    <script src="closet.js">
+    </script>
+    <script src="./main.js">
+    </script>
+
+    <title>My Website</title>
+    <style> 
+        
+      /* Style for left column */
+      .left-column {
+        background-color: rgb(22, 22, 22);
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 150px;
+      }
+
+      .left-column button {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        width: 100px;
+        margin-left: 25px;
+      }
+
+      /* Style for page content */
+      .page-content {
+        margin-left: 150px; /* Same as width of left column */
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Left column with buttons -->
+    <div class="left-column">
+      <button onclick="showPage(1)">Data</button>
+      <button onclick="showPage(2)">Clothing Creation</button>
+      <button onclick="showPage(3)">Outfit Creation</button>
+    </div>
+
+    <!-- Page content -->
+    <div class="page-content">
+
+        <div id="page1">
+            <h1>Data</h1>
+            <button onclick="showClothing()">Refresh - Clothing</button>
+            <button onclick="showOutfits()">Refresh - Outfits</button>
+            <div id="data-clothing">
+
+            </div>
+            <div id="data-outfits">
+
+            </div>
+        </div>
+        <div id="page2">
+            <h1>Clothing Creation</h1>
+            <form id="create-clothing">
+                <label for="input-name">Clothing name</label>
+                <input type="text" id="input-name" name="na">
+
+                <label for="input-type">Clothing type</label>
+                <select id="input-type" name="type">
+                    <option value="top">Top</option>
+                    <option value="bottom">Bottom</option>
+                    <option value="shoe">Shoe</option>
+                </select>
+
+
+                <label for="input-hue">Clothing colour (Hue)</label>
+                <input type="number" id="input-hue" name="hue">
+
+                <label for="input-occasion">Clothing occasion</label>
+                <select id="input-occasion" name="occasion">
+                    <option value="party">Party</option>
+                    <option value="fancy">Fancy</option>
+                    <option value="casual">Casual</option>
+                    <option value="formal">Formal</option>
+                </select>
+
+                <label for="input-warmth">Clothing warmth (0-10) </label>
+                <input type="number" id="input-warmth" name="warmth">
+
+                <button type="button" id="clothing-submit" onclick="addClothingHT()">Submit</button>
+            </form>
+        </div>
+        <div id="page3">
+            <h1>Outfit Creation</h1>
+            <div id="colourTheory">
+                <h2>Colour Theory</h2>
+                <button>Complimentary</button>
+                <button>Analogous</button>
+                <button>Triadic</button>
+                <button>Split-Complimentary</button>
+            </div>
+            <div id="Weather">
+                <h2>Weather</h2>
+                <label for="input-temp">Outside Temp in celsius (0-40) </label>
+                <input type="number" id="input-temp" name="temp">
+                <button onclick="weather()">Weather</button>
+            </div>
+            <div id="Ocassion">
+                <h2>Ocassion</h2>
+
+                <select id="input-occasion" name="occasion">
+                    <option value="party">Party</option>
+                    <option value="fancy">Fancy</option>
+                    <option value="casual">Casual</option>
+                    <option value="formal">Formal</option>
+                </select>
+                <button>Ocassion</button>
+            </div>
+            <div id="outfit">
+                <h3>Outfit : </h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to show/hide pages -->
+
+    <script>
+    function showPage(pageNumber) {
+
+        // Hide all pages
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("page2").style.display = "none";
+        document.getElementById("page3").style.display = "none";
+
+        // Show the selected page
+        document.getElementById("page" + pageNumber).style.display = "block";
+      }
+    //Show the first page
+    showPage(1);
+    
+    </script>
+  </body>
+</html>
