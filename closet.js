@@ -1,7 +1,8 @@
+//generate a random number form 0 - ma
 function randInt(max) {
     return Math.floor(Math.random() * max);
 }
-
+//checks whether given array has enough clothes to make outfit
 function enoughClothes(clothingArr){
     for (i = 0; i <= 2; i++){
         if (clothingArr == false){
@@ -25,8 +26,7 @@ function enoughClothes(clothingArr){
     }
     return true;
 }
-
-//need to adapt function to different filters (colour, weather, occasion)
+//recommends clothing to user
 function recommend(type ,criteria, clothingArr){
     let tempType = enoughClothes(clothingArr);
     if (tempType){
@@ -34,17 +34,21 @@ function recommend(type ,criteria, clothingArr){
     }
 }
 
+//Closet class for storing the users clothing
 class Closet{
     constructor(){
         this.tops = []
         this.bottoms = []
         this.shoes = []
+        //Array of types of clothing for easier access and looping
         this.Storage = [this.tops,this.bottoms,this.shoes];
+        //Array for storing outfits
         this.Outfits = []
     }
 
     //Add clothing that already exists
     addClothing(Clothing){
+        //Check type of clothing and add it to its array accordingly
         if (Clothing.type === "top"){
             this.tops.push(Clothing);   
         }else if (Clothing.type === "bottom"){
@@ -52,14 +56,15 @@ class Closet{
         }else if (Clothing.type === "shoe"){
             this.shoes.push(Clothing);
         }else{
+            //If the type is somehow invalid, no error is raised
             console.log("Invalid Type, Could not add clothing")
         }
     }
 
     //Create new clothing and add it
     addNewClothing(name, type, colour, occasion, warmth){
+        //uses previous function
         this.addClothing(new Clothes(name, type, colour, occasion, warmth))
-        this.Storage = [this.tops,this.bottoms,this.shoes];
     }
 
     saveOutfit(index){
@@ -68,7 +73,6 @@ class Closet{
         }else{
             console.log("Invalid index")
         }
-        
     }
 
 
@@ -107,7 +111,6 @@ class Closet{
         let secondColour = mainClothing.hue + 180;
         secondColour = fixHue(secondColour);
         
-
         //looping through clothes and adding clothes with correct colour
         for(let i = 0; i <= 2; i++){
             for (let t = 0; t <= clothingArr[i].length - 1; t++){

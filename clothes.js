@@ -11,15 +11,15 @@ function fixHue(hue){
 }
 
 
-//Class to create different clothes
+//Class for clothing
 class Clothes{
 
     constructor(name, type, hue, occasion, warmth){
-        this.name = name; //string
-        this.type = type; //string 
-        this.hue = hue;
+        this.name = name;         //string
+        this.type = type;         //string 
+        this.hue = hue;           //int from 0 - 360
         this.occasion = occasion; // occasion the clothing can be used in
-        this.warmth = warmth; //Value out of 10
+        this.warmth = warmth;     //Value out of 10
     }
 
     hueInRange(inpHue){

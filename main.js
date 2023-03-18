@@ -50,7 +50,6 @@ function showClothing(){
     clearByID("data-outfits")
     let dataPage = document.getElementById("data-clothing");
     let temp;
-
     let clothingH2 = document.createElement("h2");
     let clothingText = document.createTextNode("Clothing");
     clothingH2.appendChild(clothingText);
@@ -88,8 +87,6 @@ function showClothing(){
         dataPage.appendChild(para);
         dataPage.appendChild(line);
     }
-
-
 }
 
 function weather(){
